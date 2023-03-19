@@ -19,6 +19,8 @@ class BaseConfig:
 
     PWD_HASH_SALT = base64.b64decode("salt")
     PWD_HASH_ITERATIONS = 100_000
+    JWT_ALGORITHM = "HS256"
+
 
     RESTX_JSON = {
         'ensure_ascii': False,
@@ -38,11 +40,12 @@ class DevelopmentConfig(BaseConfig):
 
 class ProductionConfig(BaseConfig):
     DEBUG = False
-    # TODO: дополнить конфиг
+    # SQLALCHEMY_DATABASE_URI = "sqlite:///" + BASE_DIR.joinpath('project.db').as_posix()
+    # SQLALCHEMY_DATABASE_URI = 'sqlite:///./project.db'
 
 
 class ConfigFactory:
-    flask_env = os.getenv('FLASK_ENV')
+    flask_env = 'development'
 
     @classmethod
     def get_config(cls) -> Type[BaseConfig]:
@@ -56,3 +59,4 @@ class ConfigFactory:
 
 
 config = ConfigFactory.get_config()
+

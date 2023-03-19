@@ -1,6 +1,13 @@
+import logging
+
 from project.config import config
-from project.models import Genre
+
+
+from project.models import Genre, Director, Movie, User
 from project.server import create_app, db
+
+
+logging.basicConfig(format='%(asctime)s [%(levelname)s]: %(message)s')
 
 app = create_app(config)
 
@@ -10,4 +17,11 @@ def shell():
     return {
         "db": db,
         "Genre": Genre,
+        "Director": Director,
+        "Movie": Movie,
+        "User": User,
     }
+
+if __name__ == '__main__':
+    app.run(host="localhost", port=10073, debug=True)
+

@@ -1,5 +1,7 @@
 from project.config import config
+
 from project.server import create_app
+
 from project.setup.db import db
 
 if __name__ == '__main__':

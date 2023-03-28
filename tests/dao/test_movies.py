@@ -31,7 +31,7 @@ class TestMoviesDAO:
     @pytest.fixture
     def movie_2(self, db):
         movia_two = Movie(
-            id=1,
+            id=2,
             title='cheburashka',
             description='Иногда, чтобы вернуть солнце и улыбки в мир взрослых, нужен один маленький ушастый герой. Мохнатого непоседливого зверька из далекой апельсиновой страны ждут удивительные приключения в тихом приморском городке, где ему предстоит найти себе имя, друзей и дом',
             trailer='https://www.youtube.com/watch?v=x1qvJL7NF9s',
